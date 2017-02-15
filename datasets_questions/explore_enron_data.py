@@ -19,4 +19,6 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
-
+if __name__ == '__main__':
+    name = 'Prentice James'.upper()
+    print enron_data[name]['total_stock_value']
