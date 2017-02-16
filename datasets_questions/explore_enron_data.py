@@ -20,5 +20,37 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
 if __name__ == '__main__':
-    name = 'Prentice James'.upper()
-    print enron_data[name]['total_stock_value']
+    ceo = 'Skilling Jeffrey K'.upper()
+    president = 'LAY KENNETH L'
+    cfo = 'FASTOW ANDREW S'
+    print enron_data
+
+    # print enron_data[ceo]
+    # print enron_data[president]
+    # print enron_data[cfo]
+
+    # with_salary = {}
+    # with_email = {}
+    # for name in enron_data.keys():
+    #     if enron_data[name]['salary'] != 'NaN':
+    #         with_salary[name] = enron_data[name]
+    #     if enron_data[name]['email_address'] != 'NaN':
+    #         with_email[name] = enron_data[name]
+    # print len(with_salary)
+    # print len(with_email)
+
+    pois = {}
+    for name in enron_data.keys():
+        if enron_data[name]['poi'] is True:
+            pois[name] = enron_data[name]
+    print len(pois)
+    pois_count = 0
+    total_count = 0
+    for name in enron_data.keys():
+        if enron_data[name]['total_payments'] == 'NaN':
+            total_count += 1
+    print total_count
+    for name in pois.keys():
+        if pois[name]['total_payments'] == 'NaN':
+            pois_count += 1
+    print pois_count
